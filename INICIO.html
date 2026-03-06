@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macarena Bar - Menú</title>
+    <style>
+        /* Configuraciones generales */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Fondo con imagen y desenfoque */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* Imagen de ejemplo */
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px); /* Efecto desenfocado de la imagen */
+            z-index: -1;
+            transform: scale(1.1); /* Evita bordes blancos por el blur */
+        }
+
+        /* Contenedor principal */
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        /* Estilo del Logo/Título */
+        .logo {
+            font-size: 2.5rem;
+            letter-spacing: 8px;
+            margin-bottom: 40px;
+            font-weight: lighter;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 1.2rem;
+            letter-spacing: 15px;
+            margin-top: 10px;
+        }
+
+        /* Rejilla de botones superiores */
+        .grid-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        /* Estilo base de los botones */
+        .btn {
+            background-color: #c4a459; /* Dorado mate */
+            color: black;
+            text-decoration: none;
+            padding: 15px 5px;
+            border-radius: 50px; /* Bordes muy redondeados */
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #9c824a;
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background-color: #d4b875;
+            transform: scale(1.05);
+        }
+
+        /* Botones largos de abajo */
+        .full-btn {
+            margin-top: 15px;
+            padding: 18px;
+            font-size: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="background"></div>
+
+    <div class="container">
+        <h1 class="logo">
+            MACARENA
+            <span>B A R</span>
+        </h1>
+
+        <div class="grid-buttons">
+            <a href="https://kenimarquines-cyber.github.io/PLAN/" class="btn">Perfil</a>
+            <a href="chat.html" class="btn">Chat</a>
+            <a href="hacer-reserva.html" class="btn">Hacer Reserva</a>
+            <a href="mi-reserva.html" class="btn">Mi Reserva</a>
+        </div>
+
+        <a href="catalogo.html" class="btn full-btn">Catálogo</a>
+        <a href="cerrar-sesion.html" class="btn full-btn">Cerrar Sesión</a>
+    </div>
+
+</body>
+</html>
