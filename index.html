@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Mi App</title>
-<link rel="manifest" href="manifest.json">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Macarena Bar  - Menú</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
     <style>
         /* Configuraciones generales */
         body, html {
@@ -109,8 +110,10 @@
         </div>
     </div>
     <script>
-    if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js');
+    if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/INICIO/sw.js");
+     });
     }
 </script>
 </body>
