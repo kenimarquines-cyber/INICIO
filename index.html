@@ -1,126 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macarena Bar  - Menú</title>
+    <title>Macarena Bar - Menú</title>
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#000000">
     <style>
-
-    body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh; /* ¡ESTO ES VITAL! */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centra verticalmente */
-    align-items: center;     /* Centra horizontalmente */
-    background-color: #050505;
-}
-
-.button-group {
-    display: flex;
-    flex-direction: column;  /* Botones uno sobre otro */
-    gap: 20px;               /* Espacio entre botones */
-    width: 100%;
-    max-width: 300px;        /* Para que no ocupen toda la pantalla en PC */
-}
-
-.btn {
-    text-align: center;
-    /* ... (aquí va el resto de tu código de botón neón anterior) */
-}
-        /* Configuraciones generales */
-        .logo {
-            color: #fff; /* Color base del texto */
-            text-align: center;
-            text-transform: uppercase;
-            font-size: 4rem; /* Tamaño grande */
-            font-weight: bold;
-            letter-spacing: 5px;
-            position: relative;
-            cursor: pointer;
-
-            /* --- PERSPECTIVA 3D --- */
-            transform-style: preserve-3d;
-            perspective: 1000px;
-
-            /* --- MOVIMIENTO DE BALANCEO --- */
-            animation: balanceo3D 5s infinite ease-in-out;
-            
-            /* --- EFECTO NEÓN INICIAL (Cian) --- */
-            text-shadow: 
-                0 0 7px #fff,
-                0 0 10px #fff,
-                0 0 21px #fff,
-                0 0 42px #fcf812, /* Color neón principal */
-                0 0 82px #fcec12,
-                0 0 92px #fcf812,
-                0 0 102px #fcec12,
-                0 0 151px #fce512;
-            
-            transition: all 0.3s ease;
+ 
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #050505;
         }
-
-        .logo span {
-            display: block;
-            font-size: 2rem;
-            letter-spacing: 15px; /* Más espaciado */
-            margin-top: 10px;
-            opacity: 0.8;
-            
-            /* --- UN NEÓN DIFERENTE PARA 'BAR' (Opcional, Rosa) --- */
-            color: #ffb3ff;
-            text-shadow: 
-                0 0 5px #fff,
-                0 0 10px #ff00de,
-                0 0 20px #ff00de,
-                0 0 40px #ff00de;
-            
-            /* --- ANIMACIÓN DE PARPADEO ESTILO CARTEL VIEJO --- */
-            animation: parpadeoNeon 4s infinite alternate;
-        }
-
-        .logo:hover {
-            transform: scale(1.1) rotateX(10deg) rotateY(10deg);
-            text-shadow: 
-                0 0 7px #fff,
-                0 0 15px #fff,
-                0 0 30px #fff,
-                0 0 50px #f8fc12,
-                0 0 100px #ecfc12,
-                0 0 120px #fcec12;
-        }
-
-        @keyframes balanceo3D {
-            0% {
-                transform: rotateY(-15deg) rotateX(5deg);
-            }
-            50% {
-                transform: rotateY(15deg) rotateX(-5deg); /* Gira suavemente a los lados */
-            }
-            100% {
-                transform: rotateY(-15deg) rotateX(5deg);
-            }
-        }
-
-        /* B. ANIMACIÓN DE PARPADEO (Efecto fallo eléctrico) */
-        @keyframes parpadeoNeon {
-            0%, 18%, 22%, 25%, 53%, 57%, 100% {
-                /* Encendido */
-                text-shadow: 0 0 5px #fff, 0 0 10px #ff00de, 0 0 20px #ff00de, 0 0 40px #ff00de;
-                opacity: 1;
-            }
-            20%, 24%, 55% {
-                /* Apagado momentáneo */
-                text-shadow: none;
-                opacity: 0.3;
-            }
-        }
-
+ 
         /* Fondo con imagen y desenfoque */
         .background {
             position: fixed;
@@ -135,103 +34,128 @@
             filter: blur(5px);
             z-index: -1;
             transform: scale(1.1);
-            
         }
-
+ 
         /* Contenedor principal */
         .container {
             text-align: center;
             width: 90%;
-            max-width: 350px; /* Un poco más estrecho para que parezca app movil */
+            max-width: 380px;
         }
-
-        /* Estilo del Logo/Título */
+ 
+        /* ── TÍTULO con gradiente cian → morado (igual a la imagen) ── */
         .logo {
-            font-size: 2.5rem;
-            letter-spacing: 8px;
-            margin-bottom: 40px;
-            font-weight: lighter;
+            font-family: 'Arial Black', 'Impact', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 4px;
             text-transform: uppercase;
+            margin-bottom: 6px;
+ 
+            /* Gradiente cian → azul → morado */
+            background: linear-gradient(90deg, #00e5ff 0%, #2979ff 50%, #d500f9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+ 
+            /* Animación de balanceo suave */
+            animation: balanceo3D 5s infinite ease-in-out;
         }
-
+ 
+        @keyframes balanceo3D {
+            0%   { transform: rotateY(-8deg) rotateX(3deg); }
+            50%  { transform: rotateY(8deg)  rotateX(-3deg); }
+            100% { transform: rotateY(-8deg) rotateX(3deg); }
+        }
+ 
+        /* Subtítulo "EXCLUSIVE ACCESS" */
         .logo span {
             display: block;
-            font-size: 1.2rem;
-            letter-spacing: 15px;
-            margin-top: 10px;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 6px;
+            color: #aaaaaa;
+            font-weight: 400;
+            margin-top: 6px;
+            -webkit-text-fill-color: #aaaaaa; /* sobreescribe el gradiente del padre */
+            background: none;
+            animation: none;
         }
-
-        /* Contenedor de la lista de botones */
+ 
+        /* Espacio entre título y botones */
         .menu-list {
             display: flex;
-            flex-direction: column; /* Esto los pone uno debajo del otro */
-            gap: 15px; /* Espacio entre botones */
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 36px;
         }
-
-        /* Estilo base de los botones (TODOS IGUALES) */
-       .btn {
-    background-color: #fcc512; 
-    color: black;
-    text-decoration: none;
-    padding: 18px; 
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1rem;
-    display: block;
-    text-align: center; /* Asegura que el texto esté centrado */
-    border: 1px solid #fcec12; /* Cambiado para que coincida con el neón */
-    text-transform: uppercase;
-    transition: all 0.3s ease; /* Transición suave para todos los estados */
-
-    /* --- EFECTO NEÓN PRINCIPAL --- */
-    box-shadow: 0 0 10px #fce512, 
-                0 0 20px #fce512, 
-                0 0 40px rgba(18, 252, 240, 0.6);
-}
+ 
+        /* ── BOTONES tipo glassmorphism (igual a la imagen) ── */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* emoji/texto a la izquierda, flecha a la derecha */
+            text-decoration: none;
+            padding: 18px 22px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #ffffff;
+            text-transform: none;
+ 
+            /* Fondo semi-transparente oscuro */
+            background-color: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+ 
+            /* Borde sutil */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+ 
+            transition: all 0.25s ease;
+        }
+ 
         .btn:hover {
-    transform: scale(1.05); /* Se agranda un poco al pasar el mouse */
-    background-color: #ffffff; /* Se vuelve más brillante */
-    
-    /* Neón más intenso en el hover */
-    box-shadow: 0 0 20px #fce512, 
-                0 0 40px #fcf812, 
-                0 0 60px #fcec12;
-    
-    /* Brillo en el texto */
-    text-shadow: 0 0 5px rgba(0,0,0,0.2);
-}
-
+            background-color: rgba(255, 255, 255, 0.16);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+        }
+ 
+        /* Flecha → a la derecha */
+        .btn::after {
+            content: '→';
+            font-size: 1.1rem;
+            opacity: 0.7;
+        }
+ 
     </style>
 </head>
 <body>
-
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center;
-
+ 
     <div class="background"></div>
-
+ 
     <div class="container">
+ 
         <h1 class="logo">
             MACARENA
-            <span>B A R</span>
+            <span>bar</span>
         </h1>
-
+ 
         <div class="menu-list">
-            <a href="https://kenimarquines-cyber.github.io/PLAN/" class="btn">Perfil</a>
-            <a href="https://kenimarquines-cyber.github.io/CHAT/" class="btn">Chat</a>
-            <a href="https://duberandresurbano-tech.github.io/Proyecto-html/" class="btn">Hacer Reserva</a>
-            <a href="https://kenimarquines-cyber.github.io/CATALOGO/" class="btn">Catálogo</a>
-            <a href="https://duberandresurbano-tech.github.io/inicio-de-sesion/" class="btn">Cerrar Sesión</a>
-                          
-        
+            <a href="https://kenimarquines-cyber.github.io/PLAN/"                    class="btn">✨ Perfil</a>
+            <a href="https://kenimarquines-cyber.github.io/CHAT/"                    class="btn">💬 Chat</a>
+            <a href="https://duberandresurbano-tech.github.io/Proyecto-html/"        class="btn">📅 Hacer Reserva</a>
+            <a href="https://kenimarquines-cyber.github.io/CATALOGO/"               class="btn">🏠 Catálogo</a>
+            <a href="https://duberandresurbano-tech.github.io/inicio-de-sesion/"    class="btn">🚪 Cerrar Sesión</a>
         </div>
+ 
     </div>
+ 
     <script>
-    if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/INICIO/sw.js");
-     });
-    }
-</script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("/INICIO/sw.js");
+            });
+        }
+    </script>
 </body>
 </html>
